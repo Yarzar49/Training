@@ -1,0 +1,20 @@
+{
+    "name": "intern08/training",
+    "autoload": {
+        "psr-4": {
+            "Intern08\\Training\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yarzar"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Libs\\": "_classes/Libs/",
+            "Helpers\\": "_classes/Helpers/"
+        }
+    }
+}
