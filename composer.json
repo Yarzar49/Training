@@ -10,7 +10,9 @@
             "name": "yarzar"
         }
     ],
-    "require": {},
+    "require": {
+        "fakerphp/faker": "^1.21"
+    },
     "autoload": {
         "psr-4": {
             "Libs\\": "_classes/Libs/",

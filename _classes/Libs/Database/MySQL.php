@@ -1,21 +1,38 @@
 <?php
-namespace Libs/Database;
 
+namespace Libs\Database;
 use PDO;
 use PDOException;
 
 class MySQL
 {
-    private $dbhost;
-    private $dbuser;
-    private $dbname;
-    private $dbpass;
-    private $db;
+    
+    public function __construct(
+        private $dbhost = "localhost",
+        private $dbuser = "root",
+        private $dbname = "projectz",
+        private $dbpass = "",
+    ) {
+    
+    }
+    public function connect()
+    {
+    try {
+        $this->db = new PDO(
+        "mysql:host=$this->dbhost;dbname=$this->dbname",
+        $this->dbuser,
+        $this->dbpass,
+        [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+        ]
+        );
+        return $this->db;
 
-    public function __construct (
-        $dbhost = "localhost",
+            
+            } catch (PDOException $e) {
+                echo "Connection Failed: " . $e->getMessage();
+            }
+        }
 
-    )
-
-}
-?>
+    }
